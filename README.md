@@ -47,4 +47,4 @@ Das Backend ist im jetzigen Zustand zu grob und zu unsicher. Um dies zu verbesse
 - **Datenbank** - :>
 
 ### Welche Überarbeitungen/Verbesserungen sind deiner Meinung nach cool (Nice-to-have), haben aber mit Blick auf die Wirtschaftlichkeit eine geringere Priorität?
-Wenn wir mit SQL arbeiten, dann würde ich eine userCollection anlegen die Daten wie den Namen des Nutzers besitzen. In der Tabelle userPurchasesCollection würde dann "user_id" stehen anstatt dem namen des Nutzers.
+Wenn wir mit SQL arbeiten, dann würde ich eine userCollection anlegen die Daten wie Namen des Nutzers besitzt. In der Tabelle userPurchasesCollection würde dann "user_id" sein, anstatt dem namen des Nutzers.
