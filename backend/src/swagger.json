@@ -1,0 +1,143 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "This is an example NodeJS Backend for Monday Rocks",
+    "version": "1.0.0",
+    "title": "Example Restful-API with Node.js",
+    "contact": {
+      "email": "patryk.dajos@avalonia.space"
+    }
+  },
+  "host": "localhost:3333",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Customer",
+      "description": "Access to customer data."
+    }
+  ],
+  "paths": {
+    "/customer-data/{id}": {
+      "patch": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "Customer data update.",
+        "description": "Retrieves customer with id and updates their name.",
+        "operationId": "CustomerData",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The unique identifier of the user."
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "maxmustermann"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Customers data successfully updated."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    },
+    "/customer-overview": {
+      "get": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "Customer overview.",
+        "description": "Retrieves customer array with a from and to query, their ids, their names and their scores.",
+        "operationId": "CustomerOverview",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "The unique identifier of the user."
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "Starting index of the user range."
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "description": "Ending index of the user range."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched customers."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    },
+    "/customer-purchase-history/{id}": {
+      "get": {
+        "tags": [
+          "Customer"
+        ],
+        "summary": "Customer purchase history.",
+        "description": "Retrieves customer with id and retrieves their purchase history with product data.",
+        "operationId": "CustomerPurchaseHistory",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The unique identifier of the user."
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully fetched customers purchase history."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        }
+      }
+    }
+  }
+}
