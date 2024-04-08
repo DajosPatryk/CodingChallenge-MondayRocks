@@ -47,7 +47,7 @@ export class Database {
             ]
         },
         {
-            id: 'abc',
+            id: 'abcd',
             name: 'Yasin',
             purchases: [
                 { product_id: '456', quantity: 1, timestamp: 1710840519 },
@@ -65,10 +65,13 @@ export class Database {
      * @returns {Array} - An array of formatted user DTOs within the specified range.
      */
     public getUsers(id: string = "-1", from: number = -1, to: number = -1): Array<any>{
-        let users = []
+        let users: any[] = []
 
         // Retrieves a user with id
-        if(id !== "-1") users = [this.userPurchasesCollection.find((el: UserPurchases) => el.id === id)];
+        if(id !== "-1"){
+            const user = this.userPurchasesCollection.find((el: UserPurchases) => el.id === id);
+            if(user) users = [user];
+        }
 
         // Retrieves users array and shortens it with from and to
         else if (from !== -1 && to !== -1 && from <= to) users = this.userPurchasesCollection.slice(from, to + 1);
@@ -76,7 +79,7 @@ export class Database {
         // Retrieves all users
         else users = this.userPurchasesCollection;
 
-       return users.map(user => this.mapToUserDTO(user));
+        return users.map(user => this.mapToUserDTO(user));
     }
 
     /**
