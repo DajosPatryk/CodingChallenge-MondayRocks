@@ -6,7 +6,7 @@ Geplant sind drei Ansichten im Frontend:
 ### 1. Customer Overview
    Hier wird eine Liste aus userId, userName und score (Wie viel Geld hat der User für Produkte ausgegeben) angezeigt.
 
-### 2. Customer Data´9
+### 2. Customer Data
    Hier kann der Nutzername eines Users bearbeitet werden.
 
 ### 3. Customer Purchase History
